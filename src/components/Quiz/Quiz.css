@@ -39,13 +39,13 @@ body{
   color: #000000;
   font-weight: 200;
   width: 100%;
-  border: 5px inset #eeca67;
+  border: 2px inset #eeca67;
   padding: 10px;
   margin: 3px 0;
   text-align: center;
   border-radius: 4px;
   cursor:pointer;
-  transition: all 0.3s;
+  transition: all 1s;
   list-style: none;
 }
 .container ul li:hover:not([disabled]){ 
@@ -54,16 +54,17 @@ body{
 }
 
 .container button{
-  background: #001e4d;
-  color: #fff;
-  font-weight: 500;
-  width: 150px;
-  border: 0;
-  padding: 10px;
-  margin: 20px auto 0;
-  border-radius: 4px;
-  cursor: pointer;
   font-family: 'Amatic SC', sans-serif;
+  /* background: #fff; */
+  background-color: rgba(250, 235, 215, 0.622);
+  color: #000000;
+  font-weight: 400;
+  border: 1px solid antiquewhite;
+  border-radius: 4px;
+  cursor:pointer;
+  list-style: none;
+  width:100px ;
+  height: 30px;
 }
 
 .container .index{
@@ -83,4 +84,18 @@ body{
 
 .container .wrong{
   background: #ff9393;
+}
+
+.reset{
+  font-family: 'Amatic SC', sans-serif;
+  /* background: #fff; */
+  background-color: rgba(250, 235, 215, 0.622);
+  color: #000000;
+  font-weight: 400;
+  border: 1px solid antiquewhite;
+  border-radius: 4px;
+  cursor:pointer;
+  list-style: none;
+  width:100px ;
+  height: 30px;
 }
