@@ -46,7 +46,7 @@ body{
   text-align: center;
   border-radius: 4px;
   cursor:pointer;
-  transition: all 1s;
+  transition: all 0.3s;
   list-style: none;
 }
 .container ul li:hover:not([disabled]){ 
