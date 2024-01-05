@@ -21,7 +21,7 @@
   text-align: center;
 }
 body{
-  background-image: url(images/2.jpg) ;
+  background-image: url(../images/2.jpg) ;
   background-position: center;
   /* background-size: cover; */
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@ body{
 .container ul li{
   font-family: 'Amatic SC', sans-serif;
   /* background: #fff; */
-  background-image:url(images/5.jpg);
+  background-image:url(../images/5.jpg);
   background-repeat: no-repeat;
   background-size:cover;
   background-position: center;
@@ -42,6 +42,8 @@ body{
   border: 2px inset #eeca67;
   padding: 10px;
   margin: 3px 0;
+  font-size: 25px;
+  font-weight: 700;
   text-align: center;
   border-radius: 4px;
   cursor:pointer;
