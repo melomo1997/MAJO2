@@ -32,11 +32,12 @@ body{
 .container ul li{
   font-family: 'Amatic SC', sans-serif;
   /* background: #fff; */
-  background-image:url(images/1.jpg);
+  background-image:url(images/5.jpg);
   background-repeat: no-repeat;
   background-size:cover;
   background-position: center;
-  color: #000000;
+
+  color: #f3e9e9;
   font-weight: 200;
   width: 100%;
   border: 2px inset #eeca67;
