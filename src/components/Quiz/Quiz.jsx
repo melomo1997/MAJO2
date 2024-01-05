@@ -1,30 +1,24 @@
-// the quiz
 import React, { useState, useRef } from 'react';
-import './Quiz.css';
+import './quiz.css';
 import { data } from '../../assets/data';
 
 const Quiz = () => {
-  let [index, setIndex] = useState(0);
-  let [question, setQuestion] = useState(data[index]);
-  let [lock, setLock] = useState(false);
-  let [result, setResult] = useState(false);
-  let [score, setScore] = useState(0); // Add state for score
+  const [index, setIndex] = useState(0);
+  const [question, setQuestion] = useState(data[index]);
+  const [lock, setLock] = useState(false);
+  const [result, setResult] = useState(false);
+  const [score, setScore] = useState(0); // Add state for score
 
-  let option1 = useRef(null);
-  let option2 = useRef(null);
-  let option3 = useRef(null);
-  let option4 = useRef(null);
-
-  let option_array = [option1, option2, option3, option4];
+  const options = Array.from({ length: 4 }, (_, i) => useRef(null));
 
   const checkAns = (e, ans) => {
     if (lock === false) {
       if (question.ans === ans) {
         e.target.classList.add('correct');
-        setScore(score + 1); // Increment the score on correct answer
+        setScore((prevScore) => prevScore + 1); // Increment the score on correct answer
       } else {
         e.target.classList.add('wrong');
-        option_array[question.ans - 1].current.classList.add('correct');
+        options[question.ans - 1].current.classList.add('correct');
       }
       setLock(true);
     }
@@ -39,7 +33,7 @@ const Quiz = () => {
       setIndex(index + 1);
       setQuestion(data[index + 1]);
       setLock(false);
-      option_array.forEach((option) => {
+      options.forEach((option) => {
         option.current.classList.remove('wrong');
         option.current.classList.remove('correct');
       });
@@ -52,7 +46,7 @@ const Quiz = () => {
     setLock(false);
     setResult(false);
     setScore(0); // Reset the score
-    option_array.forEach((option) => {
+    options.forEach((option) => {
       option.current.classList.remove('wrong');
       option.current.classList.remove('correct');
     });
@@ -65,7 +59,9 @@ const Quiz = () => {
       {result ? (
         <>
           <h2>Your Scored {score} out of {data.length}</h2>
-          <button onClick={reset}>Reset</button>
+          <button className='reset' onClick={reset}>
+            Reset
+          </button>
         </>
       ) : (
         <>
@@ -74,20 +70,11 @@ const Quiz = () => {
           </h2>
           <div className='box'>
             <ul>
-              <li ref={option1} onClick={(e) => checkAns(e, 1)}>
-                {question.option1}
-              </li>
-              <li ref={option2} onClick={(e) => checkAns(e, 2)}>
-                {question.option2}
-              </li>
-            </ul>
-            <ul>
-              <li ref={option3} onClick={(e) => checkAns(e, 3)}>
-                {question.option3}
-              </li>
-              <li ref={option4} onClick={(e) => checkAns(e, 4)}>
-                {question.option4}
-              </li>
+              {options.map((option, i) => (
+                <li key={i} ref={option} onClick={(e) => checkAns(e, i + 1)}>
+                  {question[`option${i + 1}`]}
+                </li>
+              ))}
             </ul>
           </div>
           <button onClick={next}>Next</button>
